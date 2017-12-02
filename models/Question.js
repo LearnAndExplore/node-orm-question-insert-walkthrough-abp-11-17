@@ -19,10 +19,11 @@ class Question{
     this.content = content
   }
 
-  insert(self){
+  insert(){
+    const self = this
+    const sql = `INSERT INTO questions(content) VALUES (?)`
     return new Promise(function(resolve){
-      const sql = `INSERT INTO questions(content) VALUES (?)`
-      db.run(sql,[this.content],function(){resolve(self)})
+        db.run(sql,[this.content],function(){resolve(self)})
 
     })
   }
