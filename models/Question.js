@@ -23,7 +23,7 @@ class Question{
     const self = this
     const sql = `INSERT INTO questions (content) VALUES (?)`
     return new Promise(function(resolve){
-        db.run(sql,[self.content],function(){resolve("I am resolved")})
+        db.run(sql,[self.content],function(err,result){resolve("I am resolved")})
 
     })
   }
