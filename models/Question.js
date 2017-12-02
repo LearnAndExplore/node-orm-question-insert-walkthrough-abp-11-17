@@ -24,8 +24,9 @@ class Question{
     const sql = `INSERT INTO questions (content) VALUES (?)`
     return new Promise(function(resolve){
         db.run(sql,[self.content],function(err,result){
-          self.lastID = this.lastID
-          resolve(self)})
+          self.id = this.lastID
+          resolve(self)
+        })
 
     })
   }
